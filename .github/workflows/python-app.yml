@@ -25,8 +25,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install qrcode[pil] pytest pyvirtualdisplay
 
-    - name: Run tests
+    - name: Run tests with virtual display
       run: |
-        python -m pytest QRCodeGeneratorApp/test_main.py  # Ajuste le chemin si nécessaire
-        # Ajoute les lignes suivantes pour utiliser un affichage virtuel
+        # Démarre l'affichage virtuel
         python -c "from pyvirtualdisplay import Display; Display().start()"
+        # Exécute les tests
+        pytest QRCodeGeneratorApp/test_main.py  # Ajuste le chemin si nécessaire
