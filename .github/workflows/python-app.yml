@@ -18,7 +18,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.10'  # Spécifie la version de Python que tu souhaites utiliser
+        python-version: '3.10'
 
     - name: Install dependencies
       run: |
@@ -27,7 +27,9 @@ jobs:
 
     - name: Run tests with virtual display
       run: |
-        # Démarre l'affichage virtuel
-        python -c "from pyvirtualdisplay import Display; Display().start()"
-        # Exécute les tests
+        # Démarrer un affichage virtuel
+        echo "Starting virtual display"
+        Xvfb :99 -screen 0 1920x1080x24 &
+        export DISPLAY=:99
+        # Exécuter les tests
         pytest QRCodeGeneratorApp/test_main.py  # Ajuste le chemin si nécessaire
