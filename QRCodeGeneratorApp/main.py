@@ -27,8 +27,8 @@ class QRCodeGeneratorApp:
     #Cette méthode sera appelée lorsque l'utilisateur cliquera sur le bouton pour générer le QR Code.
     #Définition de la methode generate_qr_code
     def generate_qr_code(self):
-        url = self.entry.get() # Récuperation de l'url entré par l'utilisateur
-        if url: # Si URL entré par l'utilisateur, alors ...
+        url = self.entry.get() # Récuperation de l'url entrée par l'utilisateur
+        if url: # Si URL entréé par l'utilisateur, alors ...
             #Crée un objet QRCode avec des paramètres spécifiques :
             qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=4)
             qr.add_data(url) # Ajoute l'URL au QR Code et ajuste la taille du QR Code pour s'adapter aux données
